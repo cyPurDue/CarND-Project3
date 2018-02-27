@@ -65,20 +65,20 @@ Data is augmented by using the flipping example in class. To show the result of 
 Here I have used 80% data for training, and 20% for validataion. 3 epoches are used every time, and I can see the training loss is decreasing all the time.
 
 #### 5. Training model architecture
-I used the end-to-end training model architecture published by NVidia [1], and here is the summary:
-Layer1: Lambda -> (160, 320, 3)
-Layer2: Cropping2D (modified to (50, 20), (0, 0)) -> (90, 320, 3)
-Layer3: Convolution2D, 24 filters, kernel (5,5), strides (2,2), relu activation
-Layer4: Convolution2D, 36 filters, kernel (5,5), strides (2,2), relu activation
-Layer5: Convolution2D, 48 filters, kernel (5,5), strides (2,2), relu activation
-Layer6: Convolution2D, 64 filters, kernel (3,3), strides (1,1), relu activation
-Layer7: Convolution2D, 64 filters, kernel (3,3), strides (1,1), relu activation
-Layer8: Dropout(0.35)
-Layer9: Flatten
-Layer10: Dense, output 100
-Layer11: Dense, output 50
-Layer12: Dense, output 10
-Layer13: Dense, output 1
+I used the end-to-end training model architecture published by NVidia [1], and here is the summary: <br />
+Layer1: Lambda -> (160, 320, 3) <br />
+Layer2: Cropping2D (modified to (50, 20), (0, 0)) -> (90, 320, 3) <br />
+Layer3: Convolution2D, 24 filters, kernel (5,5), strides (2,2), relu activation <br />
+Layer4: Convolution2D, 36 filters, kernel (5,5), strides (2,2), relu activation <br />
+Layer5: Convolution2D, 48 filters, kernel (5,5), strides (2,2), relu activation <br />
+Layer6: Convolution2D, 64 filters, kernel (3,3), strides (1,1), relu activation <br />
+Layer7: Convolution2D, 64 filters, kernel (3,3), strides (1,1), relu activation <br />
+Layer8: Dropout(0.35) <br />
+Layer9: Flatten <br />
+Layer10: Dense, output 100 <br />
+Layer11: Dense, output 50 <br />
+Layer12: Dense, output 10 <br />
+Layer13: Dense, output 1 <br />
 
 The model uses Adam optimizer, and the learning rate was not tuned. In order to prevent any overfitting, I have added one layer of dropout. Having tried a few parameters, I have used keep rate of 0.35 to train the model. The training and validation loss kept decreasing, and the car is driving smoothly.
 
