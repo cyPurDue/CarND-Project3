@@ -54,8 +54,11 @@ Using the simulation software, data from 3 cameras are logged (mid, left, right)
 As learned in the class, using left and right cameras with reasonable adjustment can provide more usable data based on limited training data. I have followed the example and used steering factor of 0.2 to generate and append 2x more data based on left and right cameras. Note that this may lead to overload the memory, and in case of that, try to pick up a random camera out of three at one time. 
 
 #### 3. Data augmentation
-Data is augmented by using the flipping example in class. To show the result of cropping, I have randomly picked up an image and illustrated the results before and after cropping.
-![alt text][image1]
+Data is augmented by using the flipping example in class. To show the result of cropping, I have randomly picked up an image and illustrated the results before and after cropping. <br />
+
+![alt text][image1] <br />
+![alt text][image2] <br />
+
 
 
 #### 4. Training and validation
