@@ -17,10 +17,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-image before cropping: <br />
-[image1]: sample_images/before_cropping.jpg "Before cropping" <br />
-image after cropping: <br />
-[image2]: sample_images/after_cropping.jpg "After cropping" <br />
+[image1]: sample_images/before_cropping.jpg "Before cropping"
+[image2]: sample_images/after_cropping.jpg "After cropping"
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -58,7 +56,9 @@ As learned in the class, using left and right cameras with reasonable adjustment
 #### 3. Data augmentation
 Data is augmented by using the flipping example in class. To show the result of cropping, I have randomly picked up an image and illustrated the results before and after cropping. <br />
 
+image before cropping: <br />
 ![alt text][image1] <br />
+image after cropping: <br />
 ![alt text][image2] <br />
 
 
