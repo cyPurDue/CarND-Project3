@@ -17,8 +17,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
+[image1]: ./sample_images/before cropping.jpg "Before cropping"
+[image2]: ./sample_images/after cropping.jpg "After cropping"
 [image3]: ./examples/placeholder_small.png "Recovery Image"
 [image4]: ./examples/placeholder_small.png "Recovery Image"
 [image5]: ./examples/placeholder_small.png "Recovery Image"
@@ -59,7 +59,10 @@ Using the simulation software, data from 3 cameras are logged (mid, left, right)
 As learned in the class, using left and right cameras with reasonable adjustment can provide more usable data based on limited training data. I have followed the example and used steering factor of 0.2 to generate and append 2x more data based on left and right cameras. Note that this may lead to overload the memory, and in case of that, try to pick up a random camera out of three at one time. 
 
 #### 3. Data augmentation
-Data is augmented by using the flipping example in class.
+Data is augmented by using the flipping example in class. To show the result of cropping, I have randomly picked up an image and illustrated the results before and after cropping.
+![alt text][image1]
+![alt text][image2]
+
 
 #### 4. Training and validation
 Here I have used 80% data for training, and 20% for validataion. 3 epoches are used every time, and I can see the training loss is decreasing all the time.
@@ -73,13 +76,14 @@ Layer4: Convolution2D, 36 filters, kernel (5,5), strides (2,2), relu activation
 Layer5: Convolution2D, 48 filters, kernel (5,5), strides (2,2), relu activation
 Layer6: Convolution2D, 64 filters, kernel (3,3), strides (1,1), relu activation
 Layer7: Convolution2D, 64 filters, kernel (3,3), strides (1,1), relu activation
-Layer8: Flatten
-Layer9: Dense, output 100
-Layer10: Dense, output 50
-Layer11: Dense, output 10
-Layer12: Dense, output 1
+Layer8: Dropout(0.35)
+Layer9: Flatten
+Layer10: Dense, output 100
+Layer11: Dense, output 50
+Layer12: Dense, output 10
+Layer13: Dense, output 1
 
-The model uses Adam optimizer, and the learning rate was not tuned.
+The model uses Adam optimizer, and the learning rate was not tuned. In order to prevent any overfitting, I have added one layer of dropout. Having tried a few parameters, I have used keep rate of 0.35 to train the model. The training and validation loss kept decreasing, and the car is driving smoothly.
 
 #### 6. Obtaining better training data
 After having model programmed and some data collected, I have tried to train the first set of data. The original data consists of 2x full good run of the track. It could run a few seconds on the road, but once it was biased, it never recovered and came back. After learning more exercise, especially [2] that the class recommended, I found out the reason is lack of recovery data collected. 

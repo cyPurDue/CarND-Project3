@@ -16,6 +16,7 @@ measurements = []
 steering_factor = 0.2
 steering_measure_vec = [0, steering_factor, -steering_factor]
 print('loading images...')
+
 for line in lines:
 	for i in range(3):
 		source_path = line[i]
@@ -40,13 +41,14 @@ y_train = np.array(augmented_measurements)
 print('Done: X_train, y_train')
 
 from keras.models import Sequential
-from keras.layers import Flatten, Dense, Lambda, Cropping2D
+from keras.layers import Flatten, Dense, Lambda, Cropping2D, Dropout
 from keras.layers.convolutional import Convolution2D
 from keras.layers.pooling import MaxPooling2D
 from keras.models import Model
 import matplotlib.pyplot as plt
 
 model = Sequential()
+#model.add(Cropping2D(cropping = ((50, 20), (0, 0))))
 model.add(Lambda(lambda x: (x / 255.0) - 0.5, input_shape=(160,320,3)))
 #model.add(Flatten(input_shape = (160, 320, 3)))
 #model.add(Dense(1))
@@ -59,6 +61,7 @@ model.add(Convolution2D(64,3,3, activation = "relu"))
 #model.add(MaxPooling2D())
 #model.add(Convolution2D(6,5,5,activation="relu"))
 #model.add(MaxPooling2D())
+model.add(Dropout(0.35))
 model.add(Flatten())
 model.add(Dense(100))
 model.add(Dense(50))
