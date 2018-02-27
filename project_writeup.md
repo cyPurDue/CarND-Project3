@@ -17,8 +17,10 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: sample_images/before_cropping.jpg "Before cropping"
-[image2]: sample_images/after_cropping.jpg "After cropping"
+image before cropping: <br />
+[image1]: sample_images/before_cropping.jpg "Before cropping" <br />
+image after cropping: <br />
+[image2]: sample_images/after_cropping.jpg "After cropping" <br />
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
